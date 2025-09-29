@@ -2,22 +2,22 @@ export function Footer() {
   const socialLinks = [
     {
       icon: "fab fa-linkedin",
-      href: "https://linkedin.com/in/om-oberoi",
+      href: "https://www.linkedin.com/in/omoberoi",
       label: "LinkedIn",
     },
     {
       icon: "fab fa-github",
-      href: "https://github.com/om-oberoi",
+      href: "https://github.com/0m0beroi",
       label: "GitHub",
     },
     {
       icon: "fas fa-code",
-      href: "https://leetcode.com/om-oberoi",
+      href: "https://leetcode.com/u/0m0beroi",
       label: "LeetCode",
     },
     {
       icon: "fab fa-instagram",
-      href: "https://instagram.com/om.oberoi",
+      href: "https://www.instagram.com/0m0beroi",
       label: "Instagram",
     },
   ];

@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { type Project } from "@shared/schema";
 
@@ -57,7 +58,7 @@ export function PortfolioSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects?.map((project) => (
+          {projects?.slice(0, 6).map((project) => (
             <div
               key={project.id}
               className="glassmorphism rounded-xl overflow-hidden hover:glow-effect transition-all duration-300 transform hover:scale-105"
@@ -101,12 +102,14 @@ export function PortfolioSection() {
                 )}
 
                 <div className="flex gap-2">
-                  <Button
-                    className="flex-1 bg-primary text-primary-foreground py-2 px-4 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-                    data-testid={`project-view-details-${project.id}`}
-                  >
-                    View Details
-                  </Button>
+                  <Link href={`/projects/${project.id}`} className="flex-1">
+                    <Button
+                      className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+                      data-testid={`project-view-details-${project.id}`}
+                    >
+                      View Details
+                    </Button>
+                  </Link>
                   {project.githubUrl && (
                     <Button
                       variant="outline"
@@ -147,7 +150,20 @@ export function PortfolioSection() {
           <div className="text-center py-12" data-testid="no-projects">
             <p className="text-muted-foreground">No projects available at the moment.</p>
           </div>
-        ) : null}
+        ) : (
+          <div className="text-center mt-12">
+            <Link href="/projects">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 glow-effect"
+                data-testid="view-full-portfolio"
+              >
+                <i className="fas fa-arrow-right mr-2"></i>
+                View Full Portfolio
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

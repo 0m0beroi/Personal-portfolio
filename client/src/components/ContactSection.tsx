@@ -64,19 +64,19 @@ export function ContactSection() {
     {
       icon: "fas fa-envelope",
       label: "Email",
-      value: "om.oberoi@example.com",
-      href: "mailto:om.oberoi@example.com",
+      value: "your-actual-email@gmail.com",
+      href: "mailto:your-actual-email@gmail.com",
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
-      value: "+91 9876543210",
-      href: "tel:+919876543210",
+      value: "+91 your-phone-number",
+      href: "tel:+91your-phone-number",
     },
     {
       icon: "fas fa-map-marker-alt",
       label: "Location",
-      value: "BBDNIIT, Lucknow, India",
+      value: "Your City, Your State, India",
       href: null,
     },
   ];
@@ -85,25 +85,25 @@ export function ContactSection() {
     {
       icon: "fab fa-linkedin",
       label: "LinkedIn",
-      href: "https://linkedin.com/in/om-oberoi",
+      href: "https://www.linkedin.com/in/omoberoi",
       color: "text-blue-600",
     },
     {
       icon: "fab fa-github",
       label: "GitHub",
-      href: "https://github.com/om-oberoi",
+      href: "https://github.com/0m0beroi",
       color: "text-foreground",
     },
     {
       icon: "fas fa-code",
       label: "LeetCode",
-      href: "https://leetcode.com/om-oberoi",
+      href: "https://leetcode.com/u/0m0beroi",
       color: "text-orange-500",
     },
     {
       icon: "fab fa-instagram",
       label: "Instagram",
-      href: "https://instagram.com/om.oberoi",
+      href: "https://www.instagram.com/0m0beroi",
       color: "text-pink-500",
     },
   ];
