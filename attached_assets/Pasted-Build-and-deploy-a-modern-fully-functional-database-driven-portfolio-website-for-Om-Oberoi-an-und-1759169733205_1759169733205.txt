@@ -1,0 +1,139 @@
+Build and deploy a modern, fully-functional, database-driven portfolio website for Om Oberoi, an undergraduate (B.Tech in Electronics & Communication Engineering, BBDNIIT, Graduating 2027). The goal is to showcase Om’s expertise in Electronics, Embedded Systems, and Computer Science through a sleek, interactive portfolio, hosted entirely on Replit.
+
+Technology Stack (Replit-Compatible)
+Frontend: React (using Replit’s React template or via Nix environment), styled with TailwindCSS (glassmorphism utilities enabled).
+
+Backend: Node.js + Express.js running in the Replit server.js.
+
+Database: MongoDB Atlas (remote cloud DB, connected via MONGO_URI secret).
+
+Authentication: Admin login secured with JWT tokens.
+
+Hosting: Entire MERN project served from Replit with a public URL.
+
+Core Features
+Theme Switcher: Dark/Light toggle with animated transitions.
+
+Glassmorphism Design: Semi-transparent, frosted-glass navigation, cards, and forms.
+
+Admin Dashboard: JWT-secured pages to manage portfolio content (add/update/delete Projects, Skills, Services, and Messages).
+
+Dynamic Rendering: Portfolio data (projects, skills, contact messages) pulled from MongoDB Atlas.
+
+Responsive Design: Works seamlessly across desktop, tablet, and mobile.
+
+Website Pages & Sections
+Home
+Hero with Om Oberoi’s name, title: Electronics & Communication Engineer | Web Developer | Innovator, and tagline: Bridging the gap between hardware and software.
+
+Glassmorphic navbar with theme toggle.
+
+CTA button: "View My Work" → links to Portfolio.
+
+About
+Bio emphasizing blend of ECE + CS expertise.
+
+Education: B.Tech in ECE, BBDNIIT, graduating 2027.
+
+Certifications:
+
+Cloud Computing (Infosys Springboard)
+
+Drone Bootcamp (CDAC Patna)
+
+Styled in frosted-glass containers.
+
+Portfolio / Projects
+Projects pulled dynamically from MongoDB:
+
+Wi-Fi Repeater using ESP32
+
+Wearable Oscilloscope Smartwatch
+
+Smart Career Booster Series
+
+Each project: card with image, description, category, status, and hover animations.
+
+Skills & Services
+Skills stored in DB, displayed via animated progress bars or icon cards.
+
+Services: Web Designing, Project Development, Tutoring.
+
+Glassmorphic design with gradient overlays.
+
+Contact
+Contact form (Name, Email, Message). Submissions stored in MongoDB Atlas.
+
+Admin dashboard to view/manage messages.
+
+Direct clickable links: Email, Phone, LinkedIn, GitHub, LeetCode, Instagram.
+
+Design Guidelines
+Theme Switcher: Smooth fade/slide.
+
+Glassmorphism: Background blur (10–20px), semi-transparent cards, subtle shadows.
+
+Color Palette: Monochrome base + silver/blue highlights.
+
+Typography: Modern sans-serif (Poppins / Inter).
+
+Animations: Smooth scrolling, hover glow, and fade-in motion.
+
+Replit Deployment Instructions
+Setup Project Structure
+
+In Replit, create a Node.js project and initialize React frontend.
+
+Structure:
+
+text
+/frontend  → React + TailwindCSS  
+/backend   → Express API server (server.js)  
+Install Dependencies
+
+Backend: express, mongoose, jsonwebtoken, bcryptjs, cors, dotenv.
+
+Frontend: react, react-dom, axios, tailwindcss.
+
+Database Configuration
+
+Use MongoDB Atlas connection string as secret in Replit (MONGO_URI).
+
+Authentication
+
+Implement JWT-based login for /admin.
+
+Protect routes for managing Projects, Skills, and Messages.
+
+Environment Variables
+
+Add in Replit Secrets:
+
+MONGO_URI (MongoDB Atlas Connection String)
+
+JWT_SECRET (random secure string for token signing)
+
+Run & Host
+
+Use concurrently or a Replit Procfile to start both frontend and backend.
+
+Example script in package.json:
+
+json
+"scripts": {
+  "start": "node backend/server.js",
+  "frontend": "cd frontend && npm start",
+  "dev": "concurrently \"npm run start\" \"npm run frontend\""
+}
+Live site becomes accessible at the Replit public URL.
+
+Goal
+Deliver a Replit-hosted MERN portfolio website with:
+
+Dynamic content from MongoDB Atlas
+
+JWT-secured admin dashboard
+
+Glassmorphism + theme toggle
+
+Fully responsive UI to showcase Om Oberoi's academic and technical strengths
