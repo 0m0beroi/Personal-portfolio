@@ -64,20 +64,20 @@ export function ContactSection() {
     {
       icon: "fas fa-envelope",
       label: "Email",
-      value: "your-actual-email@gmail.com",
+      value: "0m0beroi04@gmail.com",
       href: "mailto:your-actual-email@gmail.com",
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
-      value: "+91 your-phone-number",
+      value: "+91 8081378585",
       href: "tel:+91your-phone-number",
     },
     {
       icon: "fas fa-map-marker-alt",
       label: "Location",
-      value: "Your City, Your State, India",
-      href: null,
+      value: "Lucknow, Uttar Pradesh, India",
+      href: "https://share.google/vXhZVv6TfIz8CS6wH",
     },
   ];
 
