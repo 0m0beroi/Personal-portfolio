@@ -1,15 +1,13 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { randomUUID } from 'crypto';
+const { randomUUID } = require('crypto');
 
 // Minimal storage implementation for Vercel
 class MemStorage {
-  private projects = new Map();
-
   constructor() {
+    this.projects = new Map();
     this.initializeDefaultProjects();
   }
 
-  private initializeDefaultProjects() {
+  initializeDefaultProjects() {
     const defaultProjects = [
       {
         title: "Wi-Fi Repeater using ESP32",
@@ -51,14 +49,14 @@ class MemStorage {
         updatedAt: now,
         imageUrl: project.imageUrl || null,
         githubUrl: project.githubUrl || null,
-        liveUrl: (project as any).liveUrl || null,
+        liveUrl: project.liveUrl || null,
         technologies: project.technologies || null
       });
     });
   }
 
   async getAllProjects() {
-    return Array.from(this.projects.values()).sort((a: any, b: any) => 
+    return Array.from(this.projects.values()).sort((a, b) => 
       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
   }
@@ -66,7 +64,7 @@ class MemStorage {
 
 const storage = new MemStorage();
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -89,4 +87,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   return res.status(405).json({ message: 'Method not allowed' });
-}
+};

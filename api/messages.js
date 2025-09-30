@@ -1,11 +1,12 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { randomUUID } from 'crypto';
+const { randomUUID } = require('crypto');
 
 // Minimal storage implementation for messages
 class MemStorage {
-  private messages = new Map();
+  constructor() {
+    this.messages = new Map();
+  }
 
-  async createMessage(message: any) {
+  async createMessage(message) {
     const id = randomUUID();
     const newMessage = {
       ...message,
@@ -20,7 +21,7 @@ class MemStorage {
 
 const storage = new MemStorage();
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -49,4 +50,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   return res.status(405).json({ message: 'Method not allowed' });
-}
+};

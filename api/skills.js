@@ -1,15 +1,13 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { randomUUID } from 'crypto';
+const { randomUUID } = require('crypto');
 
 // Minimal storage implementation for skills
 class MemStorage {
-  private skills = new Map();
-
   constructor() {
+    this.skills = new Map();
     this.initializeDefaultSkills();
   }
 
-  private initializeDefaultSkills() {
+  initializeDefaultSkills() {
     const defaultSkills = [
       { name: "Electronics & Circuit Design", category: "Hardware", percentage: 90, iconClass: "fas fa-microchip" },
       { name: "Embedded Systems (C/C++)", category: "Technical", percentage: 85, iconClass: "fas fa-code" },
@@ -29,13 +27,13 @@ class MemStorage {
   }
 
   async getAllSkills() {
-    return Array.from(this.skills.values()).sort((a: any, b: any) => b.percentage - a.percentage);
+    return Array.from(this.skills.values()).sort((a, b) => b.percentage - a.percentage);
   }
 }
 
 const storage = new MemStorage();
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+module.exports = async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -58,4 +56,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   return res.status(405).json({ message: 'Method not allowed' });
-}
+};
