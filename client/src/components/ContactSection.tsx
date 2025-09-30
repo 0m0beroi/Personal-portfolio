@@ -65,13 +65,13 @@ export function ContactSection() {
       icon: "fas fa-envelope",
       label: "Email",
       value: "0m0beroi04@gmail.com",
-      href: "mailto:your-actual-email@gmail.com",
+      href: "mailto:0m0beroi04@gmail.com",
     },
     {
       icon: "fas fa-phone",
       label: "Phone",
       value: "+91 8081378585",
-      href: "tel:+91your-phone-number",
+      href: "tel:+918081378585",
     },
     {
       icon: "fas fa-map-marker-alt",
