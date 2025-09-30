@@ -1,15 +1,42 @@
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useRef, useState } from "react";
 import { type Skill, type Service } from "@shared/schema";
 
-export function SkillsSection() {
-  const { data: skills, isLoading: skillsLoading } = useQuery<Skill[]>({
-    queryKey: ["/api/skills"],
-  });
+// Hardcoded skills data (temporary fix for API issues)
+const hardcodedSkills: Skill[] = [
+  { id: "1", name: "Electronics & Circuit Design", category: "Hardware", percentage: 90, iconClass: "fas fa-microchip" },
+  { id: "2", name: "Embedded Systems (C/C++)", category: "Technical", percentage: 85, iconClass: "fas fa-code" },
+  { id: "3", name: "React & Node.js", category: "Software", percentage: 80, iconClass: "fab fa-react" },
+  { id: "4", name: "IoT & Cloud Integration", category: "Technical", percentage: 75, iconClass: "fas fa-cloud" },
+  { id: "5", name: "MongoDB & Database Design", category: "Software", percentage: 70, iconClass: "fas fa-database" }
+];
 
-  const { data: services, isLoading: servicesLoading } = useQuery<Service[]>({
-    queryKey: ["/api/services"],
-  });
+// Hardcoded services data (temporary fix for API issues)
+const hardcodedServices: Service[] = [
+  {
+    id: "1",
+    title: "Web Development",
+    description: "Full-stack web applications using modern frameworks and databases with responsive design principles.",
+    iconClass: "fas fa-code"
+  },
+  {
+    id: "2", 
+    title: "Project Development",
+    description: "Custom embedded systems and IoT solutions from concept to deployment with hardware-software integration.",
+    iconClass: "fas fa-microchip"
+  },
+  {
+    id: "3",
+    title: "Technical Tutoring", 
+    description: "Mentoring in electronics, programming, and engineering concepts with hands-on project guidance.",
+    iconClass: "fas fa-chalkboard-teacher"
+  }
+];
+
+export function SkillsSection() {
+  const skills = hardcodedSkills;
+  const services = hardcodedServices;
+  const skillsLoading = false;
+  const servicesLoading = false;
 
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);

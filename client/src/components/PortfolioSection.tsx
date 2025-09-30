@@ -1,12 +1,53 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { type Project } from "@shared/schema";
 
+// Hardcoded projects data (temporary fix for API issues)
+const hardcodedProjects: Project[] = [
+  {
+    id: "1",
+    title: "Wi-Fi Repeater using ESP32",
+    description: "Advanced Wi-Fi signal amplification system using ESP32 microcontroller with custom firmware for extended range coverage.",
+    category: "IoT",
+    status: "Completed",
+    imageUrl: "https://images.unsplash.com/photo-1544117519-31a4b719223d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+    githubUrl: "https://github.com/om-oberoi/wifi-repeater-esp32",
+    liveUrl: null,
+    technologies: ["ESP32", "C++", "WiFi", "IoT"],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    id: "2",
+    title: "Wearable Oscilloscope Smartwatch",
+    description: "Innovative wearable device that functions as a portable oscilloscope for real-time signal analysis and debugging.",
+    category: "Wearable",
+    status: "In Progress",
+    imageUrl: "https://images.unsplash.com/photo-1544117519-31a4b719223d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+    githubUrl: "https://github.com/om-oberoi/oscilloscope-smartwatch",
+    liveUrl: null,
+    technologies: ["Arduino", "Display", "Sensors", "PCB Design"],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    id: "3",
+    title: "Smart Career Booster Series",
+    description: "Comprehensive career development platform with AI-driven recommendations and skill assessment tools.",
+    category: "Education", 
+    status: "Completed",
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+    githubUrl: "https://github.com/om-oberoi/career-booster",
+    liveUrl: "https://career-booster.example.com",
+    technologies: ["React", "Node.js", "MongoDB", "AI/ML"],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+];
+
 export function PortfolioSection() {
-  const { data: projects, isLoading } = useQuery<Project[]>({
-    queryKey: ["/api/projects"],
-  });
+  const projects = hardcodedProjects;
+  const isLoading = false;
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
